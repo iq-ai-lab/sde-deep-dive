@@ -19,6 +19,9 @@
 [![NumPy](https://img.shields.io/badge/NumPy-1.26-013243?style=flat-square&logo=numpy&logoColor=white)](https://numpy.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Docs](https://img.shields.io/badge/Docs-36개-blue?style=flat-square&logo=readthedocs&logoColor=white)](./README.md)
+[![Lines](https://img.shields.io/badge/Lines-18k+-informational?style=flat-square)](./README.md)
+[![Theorems](https://img.shields.io/badge/Theorems_proven-88개-success?style=flat-square)](./README.md)
+[![Exercises](https://img.shields.io/badge/Exercises-108개-orange?style=flat-square)](./README.md)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square&logo=opensourceinitiative&logoColor=white)](./LICENSE)
 
 </div>
@@ -228,6 +231,34 @@
 
 ---
 
+## 🏆 핵심 정리 인덱스
+
+이 레포에서 **완전한 증명**을 제공하는 대표 정리 모음입니다. 각 챕터의 문서에서 $\square$로 종결되는 엄밀한 증명을 확인할 수 있습니다. (전체 88개 정리 중 핵심만 발췌)
+
+| 정리 | 서술 | 출처 문서 |
+|------|------|----------|
+| **브라운 운동의 무한변동** | $\sup_\pi \sum \|B_{t_{i+1}} - B_{t_i}\| = \infty$ a.s. — 경로별 이토 적분 불가능성의 근거 | [Ch1-01](./ch1-ito-integral/01-why-pathwise-fails.md) |
+| **이토 등장성(Itô isometry)** | $\mathbb{E}[(\int H\,dB)^2] = \mathbb{E}[\int H^2\,ds]$ — $L^2$ 확장의 수학적 기반 | [Ch1-02](./ch1-ito-integral/02-simple-process-isometry.md) |
+| **이차변분 $L^2$ 수렴** | $\sum (B_{t_{i+1}} - B_{t_i})^2 \to t$ in $L^2$ — $(dB)^2 = dt$의 원천 | [Ch2-02](./ch2-ito-formula/02-db-squared-equals-dt.md) |
+| **이토 공식** | $df(X_t) = f'(X_t)\,dX_t + \frac{1}{2}f''(X_t)\,d\langle X\rangle_t$ — 확률해석의 연쇄법칙 | [Ch2-01](./ch2-ito-formula/01-ito-formula-statement.md) |
+| **SDE 존재·유일성** | Lipschitz + 선형성장 하에서 강해 존재·유일 (Picard 반복 + Grönwall) | [Ch3-02](./ch3-sde/02-existence-uniqueness.md) |
+| **Fokker-Planck 방정식** | $\partial_t p = -\nabla\cdot(bp) + \frac{1}{2}\nabla^2:(\sigma\sigma^T p)$ — 이토 공식 + 부분적분 유도 | [Ch4-01](./ch4-fokker-planck/01-fokker-planck-derivation.md) |
+| **Langevin의 Gibbs 정상분포** | $dX = -\nabla U\,dt + \sqrt{2}\,dB$ ⇒ $\pi \propto e^{-U}$ — FP 직접 검증 | [Ch4-03](./ch4-fokker-planck/03-stationary-distribution.md) |
+| **Log-Sobolev ⇒ 지수 수렴** | LSI($\lambda$) ⇒ $H(p_t\|\pi) \leq e^{-2\lambda t} H(p_0\|\pi)$ | [Ch4-05](./ch4-fokker-planck/05-log-sobolev.md) |
+| **Euler-Maruyama 강수렴 1/2차** | $\mathbb{E}\|X_T - \bar X_T^h\| \leq C h^{1/2}$ | [Ch5-01](./ch5-numerical/01-euler-maruyama.md) |
+| **Milstein 강수렴 1차** | 이토-Taylor 전개의 추가 항 $\frac{1}{2}\sigma\sigma'((\Delta B)^2 - h)$로 차수 향상 | [Ch5-02](./ch5-numerical/02-milstein.md) |
+| **Anderson 시간반전 공식** | $d\bar X_\tau = (-b + \sigma\sigma^T \nabla\log p_{T-\tau})d\tau + \sigma\,d\bar B_\tau$ — FP 시간반전 유도 | [Ch6-01](./ch6-reverse-diffusion/01-anderson-reverse-sde.md) |
+| **Tweedie 공식** | $\mathbb{E}[X\mid Y=y] = y + \sigma^2\nabla\log p_Y(y)$ — score ↔ posterior mean | [Ch6-02](./ch6-reverse-diffusion/02-tweedie-formula.md) |
+| **Hyvärinen SM 등가 변환** | $\mathbb{E}\|s_\theta - \nabla\log p\|^2 = \mathbb{E}[\frac{1}{2}\|s_\theta\|^2 + \text{tr}(\nabla s_\theta)] + \text{const}$ | [Ch6-03](./ch6-reverse-diffusion/03-score-matching.md) |
+| **DSM ⇔ SM 등가성** | Vincent(2011) — Gaussian 섭동 하의 perturbed SM이 원래 SM과 $\theta$ 관점에서 동치 | [Ch6-04](./ch6-reverse-diffusion/04-denoising-score-matching.md) |
+| **DDPM = VP-SDE의 EM 이산화** | DDPM 이산 markov chain이 VP-SDE의 Euler-Maruyama 이산화이고 손실이 $\sigma_t^2$-가중 DSM과 일치 | [Ch6-06](./ch6-reverse-diffusion/06-ddpm-as-sde.md) |
+| **PF-ODE drift 공식** | Reverse SDE와 같은 marginal을 갖는 ODE의 drift $b - \frac{1}{2}\sigma\sigma^T\nabla\log p_t$ | [Ch7-01](./ch7-advanced-generative/01-probability-flow-ode.md) |
+| **CFM ⇔ FM 등가성** | Lipman(2023) — Conditional Flow Matching gradient가 Flow Matching gradient와 일치 | [Ch7-03](./ch7-advanced-generative/03-flow-matching.md) |
+
+> 💡 **챕터별 총 정리 수**: Ch1(15) · Ch2(11) · Ch3(17) · Ch4(12) · Ch5(11) · Ch6(8) · Ch7(14) — 합계 **88개 정리 + 증명**, 약 **18,000+ 라인** 분량.
+
+---
+
 ## 💻 실험 환경
 
 모든 챕터의 실험은 아래 환경에서 재현 가능합니다.
@@ -326,12 +357,18 @@ print(f'이차변분 측정값        : {quadratic_var[-1]:.4f}')
 | 10 | 📌 **핵심 정리** | 한 장으로 요약 |
 | 11 | 🤔 **생각해볼 문제 (+ 해설)** | 손 계산·증명 재구성·구현 문제 |
 
+> 📚 **연습문제 총 108개**: 36문서 × 문서당 3문제(기초/심화/AI 연결), 모든 문제에 `<details>` 펼침 해설 포함. 손 계산 재현부터 DDPM/TRPO 연결까지 단계적으로 심화됩니다.
+>
+> 🧭 **푸터 네비게이션**: 각 문서 하단에 `◀ 이전 / 📚 README / 다음 ▶` 링크가 항상 제공됩니다. 챕터 경계에서도 자동으로 다음 챕터 첫 문서로 연결되므로 순차 학습이 끊기지 않습니다.
+>
+> ⏱️ **학습 시간 추정**: 문서당 평균 523줄(증명·코드·연습문제 포함) 기준 **약 1~1.5시간**. 전체 36문서는 약 **45~55시간** 상당.
+
 ---
 
 ## 🗺️ 추천 학습 경로
 
 <details>
-<summary><b>🟢 "Diffusion Model을 구현하지만 왜 reverse SDE인지 모른다" — Diffusion 집중 (5일)</b></summary>
+<summary><b>🟢 "Diffusion Model을 구현하지만 왜 reverse SDE인지 모른다" — Diffusion 집중 (5일, 약 12~15시간)</b></summary>
 
 <br/>
 
@@ -349,7 +386,7 @@ Day 5  Ch6-03~04  Score Matching과 DSM 동치성
 </details>
 
 <details>
-<summary><b>🟡 "SDE 수치해법을 쓰지만 수렴차수 논리를 모른다" — 수치해법 집중 (1주)</b></summary>
+<summary><b>🟡 "SDE 수치해법을 쓰지만 수렴차수 논리를 모른다" — 수치해법 집중 (1주, 약 14~18시간)</b></summary>
 
 <br/>
 
@@ -366,7 +403,7 @@ Day 7  Ch5-04~05  Implicit 방법과 MLMC
 </details>
 
 <details>
-<summary><b>🔴 "확률해석과 Diffusion의 수학적 기반을 완전 정복한다" — 전체 정복 (8주)</b></summary>
+<summary><b>🔴 "확률해석과 Diffusion의 수학적 기반을 완전 정복한다" — 전체 정복 (8주, 약 45~55시간)</b></summary>
 
 <br/>
 
