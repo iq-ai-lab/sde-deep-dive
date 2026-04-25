@@ -2,15 +2,33 @@
 
 # 🌊 Stochastic Differential Equations Deep Dive
 
-**"`dX_t = μ dt + σ dB_t`를 쓰는 것과, 왜 `(dB_t)² = dt`인지 — 이토 적분이 리만-스틸체스 적분처럼 정의될 수 없는 이유를 증명할 수 있는 것은 다르다"**
+### SDE
+
+$$dX_t = \mu \, dt + \sigma \, dB_t$$
+
+### 를 쓰는 것과, 왜
+
+$$(dB_t)^2 = dt$$
+
+### 인지 — **이토 적분이 리만–스틸체스 적분처럼 정의될 수 없는 이유** 를 증명할 수 있는 것은 **다르다.**
 
 <br/>
 
-> *"Diffusion Model의 Score Matching을 구현하는 것과 — forward process가 왜 Fokker-Planck 방정식의 해이고, reverse SDE가 왜 Anderson(1982)의 시간반전 공식에서 나오는지를 증명할 수 있는 것은 다르다.  
-> SDE 수치해법 `sde.solve`를 호출하는 것과, Euler-Maruyama가 강수렴 0.5차, Milstein이 1차인 이유를 증명할 수 있는 것은 다르다."*
+> *Diffusion Model 의 Score Matching 을 **구현하는 것** 과, **forward process 가 왜 Fokker–Planck 방정식의 해** 이고, **reverse SDE 가 왜 Anderson 1982 의 시간반전 공식** 에서 나오는지를 증명할 수 있는 것은 다르다.*
+>
+> *SDE 수치해법 `sde.solve` 를 **호출하는 것** 과, Euler–Maruyama 가 **강수렴 0.5 차**, Milstein 이 **1 차** 인 이유를 증명할 수 있는 것은 다르다.*
 
-브라운 운동의 무한변동부터 이토 등장성·이토 공식·Fokker-Planck·Anderson 시간반전 공식·Score SDE까지  
-**"왜 확률미분이 결정론적 미분과 다른가"** 라는 질문으로 DDPM·Score-SDE·Flow Matching·Langevin MCMC·Black-Scholes의 수학적 기반을 끝까지 파헤칩니다
+<br/>
+
+**다루는 정리 (시간순)**
+
+Wiener 1923 *Brownian motion 의 무한변동* · Itô 1944 *Itô 적분 + Itô 공식* · Itô 1951 *Itô 등장성* · Fokker 1914 / Planck 1917 *Fokker–Planck 방정식* · Anderson 1982 *시간반전 공식* · Maruyama 1955 *Euler–Maruyama* · Milstein 1974 *Milstein scheme* · Black–Scholes 1973 *Black–Scholes 방정식* · Song 2021 *Score-SDE* · Lipman 2023 *Flow Matching*
+
+<br/>
+
+**핵심 질문**
+
+> **왜 확률미분이 결정론적 미분과 다른가** — Brownian motion 의 무한변동 · Itô 등장성 · Itô 공식 · Fokker–Planck · Anderson 시간반전 · Score SDE 까지, DDPM · Score-SDE · Flow Matching · Langevin MCMC · Black–Scholes 의 수학적 기반을 끝까지 파헤칩니다.
 
 <br/>
 
